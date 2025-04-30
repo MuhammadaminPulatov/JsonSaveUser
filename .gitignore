@@ -3,9 +3,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+/.idea
+.venv
+config.py
 # C extensions
 *.so
-
+.gitignore
 # Distribution / packaging
 .Python
 build/
