@@ -38,6 +38,12 @@ async def get_phone_number(message: Message, state: FSMContext):
     await state.set_state(Registration.age)
     await message.answer(text="Yoshingizni kiriting", reply_markup=ReplyKeyboardRemove())
 
+@dp.message(Registration.phone)
+async def get_phone_number(message: Message, state: FSMContext):
+    await state.update_data(phone=message.text)
+    await state.set_state(Registration.age)
+    await message.answer(text="Yoshingizni kiriting", reply_markup=ReplyKeyboardRemove())
+
 @dp.message(Registration.age, F.text == "/help")
 async def help_age(message: Message, state: FSMContext):
     await message.answer("Example:\n17")
